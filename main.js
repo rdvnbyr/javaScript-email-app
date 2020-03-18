@@ -249,18 +249,7 @@ function switchScreen(reqScreen) {
 
 }
 
-//Click to show person data on the Mail Box
-function showPersonData(index) {
-    
-    $('#personInfo_div')
-        .html('')
-        .append(
-            `<p><span>USER NAME:</span>  ${personData[index].userNameSignUp}</p>
-            <p><span>EMAIL:</span>  ${personData[index].emailSignUp}</p>
-            <p><span>PASSWORD:</span>  ${personData[index].passwordSignUp}</p>
-        `)
 
-}
 
 // Show Terms & Privacy.
 function showTerms() {
@@ -312,6 +301,7 @@ window.onclick = function (event) {
 function showPersonData(index) {
 
     $('#personInfo_div')
+    .toggle()
     .html('')
     .append(
         `<p><span>USER NAME:</span>  ${personData[index].userNameSignUp}</p>
