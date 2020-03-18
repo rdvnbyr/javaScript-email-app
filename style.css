@@ -205,6 +205,7 @@ input[type=text] , input[type=password],  input[type=email] {
     width: 100%;
 }
 
+
 .animationMail {
     animation:anime 1.3s ;
 }
@@ -215,5 +216,18 @@ input[type=text] , input[type=password],  input[type=email] {
     }
     to {
         transform: translateX(-50%, -50%);
+    }
+}
+
+
+@media only screen and (max-width: 992px) {
+    #mailList li button {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    #mailList li button {
+        width: 100%;
     }
 }
