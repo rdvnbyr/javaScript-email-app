@@ -17,6 +17,7 @@ if (!personData) {
 let showModal_signUp = () => {
     $('#modalLogin').css('display', 'none');
     $('#modalSignUp').css('display', 'block');
+    $('#username_inputSignUp').focus();
 }
 
 var userNameSignUp, emailSignUp, passwordSignUp, repeatPasswordSignUp;
@@ -77,7 +78,8 @@ function formSignUp_submit() {
 var username, password;
 
 var show_ModalLoginForm = () => {
-    $('#modalLogin').css('display', 'block')
+    $('#modalLogin').css('display', 'block');
+    $('#userName_inputLogin').focus();
 }
 
 var getValueLogin = (event) => {
