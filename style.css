@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.navbar {
+    padding: 4px 50px;
+}
+
+.fa-at {
+    color: #f1f3f4
+}
+
+#inbox {
+    display: none;
+}
+
+#sendMail {
+    display: none;
+}
+
+
+
+.modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.form_content {
+    width: 400px;
+    background: white;
+    margin: 5% auto;
+    border: 1px solid gray;
+    padding: 16px;
+    
+}
+.form_content label {
+    margin: 2px auto;
+    color: #c02739;
+}
+
+.img_content {
+    position: relative;
+    text-align: center;
+
+}
+
+.avatar {
+    width: 30%;
+    border-radius: 50%;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 0;
+    font-size: 35px;
+    font-weight: bold;
+}
+.close:hover {
+    font-size: 40px;
+    color: brown;
+    cursor: pointer;
+}
+
+input[type=text] , input[type=password],  input[type=email] {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid gray;
+    padding: 2px 6px;
+    width: 100%;
+    margin: 1px 0;
+}
+
+.button_form_login {
+    width: 100%;
+    background: #4fa34f;
+    color: white;
+    font-size: 16px;
+    padding: 8px 0;
+    margin: 4px 0;
+    border: none;
+    cursor: pointer;
+
+}
+
+.button_form_login:hover {
+    background: #408a40;
+    font-weight: bold;
+}
+
+.signUp {
+    color: #c02739;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.signUp:hover {
+    font-weight: bold;
+}
+
+.animationClass {
+    animation:animeName 1.2s ;
+}
+
+@keyframes animeName {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+#modalSignUp .form_content label {
+    color: crimson;
+}
+
+#modalSignUp .form_content p a {
+    cursor: pointer;
+    color: crimson;
+    text-decoration: underline;
+}
+
+.textarea {
+    box-sizing: border-box;
+    display: inline-block;
+    border: 1px solid gray;
+    padding: 2px 6px;
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    margin: 2px 0;
+    resize: vertical;
+    max-block-size: 150px;
+    min-block-size: 50px;
+}
+
+#homePage {
+    margin: 20% auto;
+    text-align: center;
+    color: #c02739;
+}
+#personInfo_div p span {
+    color: black;
+}
+
+#aboutPage {
+    width: 75%;
+    margin: 5% auto;
+    padding: 25px;
+}
+
+#homePage h1:hover {
+    cursor: pointer;
+    transition: all 1.5s;
+    transform: scale(1.1);
+}
+
+#aboutPage h1 {
+    text-align: center;
+    color: #c02739;
+}
+#aboutPage p {
+    text-align: justify;
+    text-indent: 8%;
+    letter-spacing: 0.7px;
+    line-height: 1.6;
+}
+
+.modal_content {
+    width: 200px;
+}
+
+#mailList {
+    display: flex;
+    flex-direction: column;
+}
+#mailList li {
+    padding: 12px;
+    margin: 5px auto;
+    width: 100%;
+}
+#mailList li button {
+    width: 25%;
+    background: #b45d4e;
+    color: white;
+    border: none;
+    transition: all 0.5s;
+}
+
+#mailList li button:hover {
+    transform: scale(1.1);
+}
+
+#mailList li button span {
+    padding: 6px;
+    width: 100%;
+}
+
+.animationMail {
+    animation:anime 1.3s ;
+}
+
+@keyframes anime {
+    from {
+        transform: translateX(200%);
+    }
+    to {
+        transform: translateX(-50%, -50%);
+    }
+}

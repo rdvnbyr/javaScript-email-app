@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap Link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Avesome Link -->
+    <script src="https://kit.fontawesome.com/92ae6f1716.js" crossorigin="anonymous"></script>
+    <!-- Javascript Link -->
+    <script async src="main.js"></script>
+
+    <title>JAVASCRIPT EMAIL-APP</title>
+</head>
+
+<body>
+
+    <!-- NAVBAR PART -->
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#"><i class="fas fa-at"></i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li id="home" class="nav-item active">
+                        <a class="nav-link" onclick="switchScreen('home')">Home<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li id="about" class="nav-item">
+                        <a class="nav-link" onclick="switchScreen('about')">About</a>
+                    </li>
+                    <li class="nav-item" id="inbox">
+                        <a class="nav-link" onclick="switchScreen('inbox')"><i class="fas fa-envelope-square"></i> Mailbox</a>
+                    </li>
+                    <li class="nav-item" id="sendMail">
+                        <a class="nav-link" onclick="switchScreen('sendMail')"><i class="far fa-paper-plane"></i> Send Email</a>
+                    </li>
+                </ul>
+
+                <button id="loginButton" class="btn btn-success my-2 my-sm-0"
+                    onclick="show_ModalLoginForm()">Login</button>
+                <button id="logoutButton" class="btn btn-success my-2 my-sm-0" onclick="logoutFunc()"
+                    style="display: none;">Logout</button>
+
+            </div>
+        </nav>
+    </div>
+    <!-- ---------------------------- -->
+
+    <!-------------- HOME PAGE --------------->
+    <div id="homePage" class="container">
+        <h1 id="homePageText">Please login to view the page.</h1>
+        <ul id="personInfo">
+        </ul>
+        <div id="personInfo_div"></div>
+    </div>
+
+
+    <!-------------- ABOUT PAGE -------------->
+    <div class="container" id="aboutPage" style="display: none;">
+        <h1>Terms & Privacy</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi eligendi quo ullam architecto ipsa
+            perferendis cumque laborum facilis officiis corrupti obcaecati tempore, sunt fuga, unde vel quas neque rerum
+            eum asperiores necessitatibus nam magnam adipisci?</p>
+        <p>Nam et fugit nobis accusamus iusto qui harum fuga dolores, dicta perferendis alias fugiat sapiente officia
+            libero impedit? Consectetur nemo quas explicabo! Deleniti reprehenderit, ut atque accusantium laudantium
+            earum consequuntur ab magni tempora? Nemo iusto earum numquam obcaecati sed in excepturi illo odit dolor,
+            repudiandae ipsam beatae officia nisi accusantium rerum? Iure culpa maiores ipsam officia tempora
+            temporibus. Quam cupiditate beatae libero quos, maxime quia ipsa, adipisci non esse odio deleniti magnam,
+            iste incidunt doloremque vitae mollitia saepe itaque nesciunt placeat.</p>
+    </div>
+
+    <!-- Inbox page -->
+    <div id="inboxPage" class="container" style="display: none;">
+        <ul id="mailList" class="m-5">
+
+        </ul>
+    </div>
+
+    <!-- mail detail-->
+    <div id="modalBadge" class="modal">
+        <div class="form_content animationMail" method="dialog">
+
+            <div class="img_content">
+                <span class="close" title="Close Modal" onclick="hideModal()">&times;</span>
+                <h5>Email Details</h5>
+            </div>
+            <hr>
+            <table class="table table-striped table-secondary">
+
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td id="mailFrom"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td id="mailTo"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td id="mailCc"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">4</th>
+                    <td id="mailSubject"></td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td id="mailMessage"></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+    <!-- Send Mail page -->
+    <div class="container" id="sendMailPage" style="display: none;">
+        <form onsubmit="sendEmailToInbox()" class="form_content" method="dialog" autocomplete="off">
+            <div>
+                <p>Sender: <span id="userEmail"></span></p>
+            </div>
+
+            <label for="emailfrom">to</label>
+            <input id="to" type="email" name="emailto" placeholder="name@example.com">
+
+            <label for="emailto">cc</label>
+            <input id="cc" type="email" name="emailcc" placeholder="name@example.com">
+
+            <label for="subject">subject</label>
+            <input id="subject" type="text" name="subject" placeholder="Enter subject" required>
+
+            <label for="textarea">message</label>
+            <textarea id="message" class="textarea" name="textarea" placeholder="Enter Message"
+                maxlength="400"></textarea>
+
+            <button type="submit" class="button_form_login">Send</button>
+        </form>
+    </div>
+
+    <!-- ============ MODAL FORM LOGIN ============= -->
+    <div id="modalLogin" class="modal">
+        <form id="form_modal" class="form_content animationClass" method="dialog" onsubmit="formLogin_submit()"
+            autocomplete="off">
+
+            <div class="img_content">
+                <span class="close" title="Close Modal" onclick="hideModal()">&times;</span>
+                <img src="avatar.jpg" alt="avatar" class="avatar">
+            </div>
+
+            <label for="username"><b>User Name</b></label>
+            <input id="userName_inputLogin" type="text" name="username" required placeholder="Enter User Name"
+                onchange="getValueLogin(this)">
+
+            <label for="password"><b>Password</b></label>
+            <input id="password_inputLogin" type="password" name="password" placeholder="Enter Password"
+                onchange="getValueLogin(this)" required>
+
+            <button type="submit" class="button_form_login">Login</button>
+
+            <label><input type="checkbox" checked="checked">Remember me</label>
+
+            <div class="form_footer">
+                <p>Have you not an account?</p><span onclick="showModal_signUp()" class="signUp">Sign Up</span>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- ========= MODAL SIGN UP ============= -->
+
+    <div id="modalSignUp" class="modal">
+        <form id="form_SignUp" onsubmit="formSignUp_submit()" class="form_content animationClass" method="dialog" autocomplete="off">
+            <div class="img_content">
+                <span class="close" title="Close Modal" onclick="hideModal()">&times;</span>
+            </div>
+            <h4>Create Account</h4>
+
+            <label for="username">User Name</label>
+            <input id="username_inputSignUp" type="text" name="username" placeholder="Enter User Name" onchange="getValueSignUp(this)" required>
+
+            <label for="email">Email</label>
+            <input id="email_inputSignUp" type="email" name="email" placeholder="Enter Email" onchange="getValueSignUp(this)" required>
+
+            <label for="password">Password</label>
+            <input id="password_inputSignUp" type="password" name="password" placeholder="Enter password"
+                onchange="getValueSignUp(this)" required>
+
+            <label for="repeatPassword">Repeat Password</label>
+            <input id="repeatPassword_inputSignUp" type="password" name="repeatPassword" placeholder="Repeat Password"
+                onchange="getValueSignUp(this)" required>
+
+            <p>By creating an account you agree to our <a onclick="showTerms()">Terms & Privacy</a></p>
+
+            <button type="submit" class="button_form_login">Sign Up</button>
+        </form>
+    </div>
+
+
+
+
+
+
+    <!-- Bootstrap  -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <!-- -------------- -->
+</body>
+
+</html>
