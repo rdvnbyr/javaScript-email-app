@@ -161,10 +161,12 @@
             <label for="username"><b>User Name</b></label>
             <input id="userName_inputLogin" type="text" name="username" required placeholder="Enter User Name"
                 onchange="getValueLogin(this)">
-
+            
             <label for="password"><b>Password</b></label>
+            
             <input id="password_inputLogin" type="password" name="password" placeholder="Enter Password"
                 onchange="getValueLogin(this)" required>
+                <i id="toggleIcon" onclick="passwordToggle()" class="fas fa-lock"></i>
 
             <button type="submit" class="button_form_login">Login</button>
 
