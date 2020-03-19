@@ -34,6 +34,7 @@ body {
 }
 
 .form_content {
+    position: relative;
     width: 400px;
     background: white;
     margin: 5% auto;
@@ -42,6 +43,7 @@ body {
     
 }
 .form_content label {
+    position: relative;
     margin: 2px auto;
     color: #c02739;
 }
@@ -95,6 +97,18 @@ input[type=text] , input[type=password],  input[type=email] {
     background: #408a40;
     font-weight: bold;
 }
+
+#toggleIcon {
+    position: absolute;
+    color: #c02739;
+    left: 92%;
+    bottom: 41%;
+    transform: translateX(-50%);
+}
+#toggleIcon:hover {
+    cursor: pointer;
+}
+
 
 .signUp {
     color: #c02739;
