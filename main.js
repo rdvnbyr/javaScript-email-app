@@ -327,3 +327,23 @@ let logoutFunc = () => {
     return window.location.reload(true);
 }
 
+// Password Toggle Func
+let passwordToggle = () => {
+
+    let password = document.getElementById('password_inputLogin');
+    let toggle = document.getElementById('toggleIcon')
+
+    if ( password.type === "password" ) {
+
+        password.setAttribute('type', 'text');
+        toggle.classList.remove('fa-lock');
+        toggle.classList.add('fa-lock-open');
+
+        
+    } else {
+
+        password.setAttribute('type', 'password');
+        toggle.classList.remove('fa-lock-open');
+        toggle.classList.add('fa-lock');
+    }
+}
